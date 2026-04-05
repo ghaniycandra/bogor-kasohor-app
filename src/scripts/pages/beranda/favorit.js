@@ -26,7 +26,7 @@ export default class Favorit {
           <div class="favorit-message-box">
             <h3 class="favorit-message-title">Belum ada cerita yang disimpan.</h3>
             <p class="favorit-message-text">Yuk, kembali ke Beranda dan simpan cerita menarik yang kamu temukan!</p>
-            <a href="/#/" class="btn-mono-main btn-back-home">Ke Beranda</a>
+            <a href="#/" class="btn-mono-main btn-back-home">Ke Beranda</a>
           </div>
         `;
         return;
@@ -34,7 +34,7 @@ export default class Favorit {
 
       let semuaKartuHtml = '';
 
-      savedStories.forEach((story) => {
+      for (const story of savedStories) {
         const date = new Date(story.createdAt).toLocaleDateString('id-ID', {
           year: 'numeric',
           month: 'long',
@@ -43,9 +43,30 @@ export default class Favorit {
 
         let infoLokasiHtml = '';
         if (story.lat && story.lon) {
-          const latPendek = parseFloat(story.lat).toFixed(3);
-          const lonPendek = parseFloat(story.lon).toFixed(3);
-          infoLokasiHtml = `<p class="cerita-date cerita-loc">📍 Lokasi: ${latPendek}, ${lonPendek}</p>`;
+          // 👇 TRIK JITU: Gunakan placeName yang sudah disiapkan dari Beranda
+          let namaLokasi = story.placeName || `${parseFloat(story.lat).toFixed(3)}, ${parseFloat(story.lon).toFixed(3)}`;
+
+          // Jika entah kenapa tidak ada placeName, baru kita lacak ulang
+          if (!story.placeName) {
+            try {
+              const response = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${story.lat}&lon=${story.lon}`
+              );
+              if (response.ok) {
+                const data = await response.json();
+                namaLokasi =
+                  data.address?.city ||
+                  data.address?.town ||
+                  data.address?.county ||
+                  data.address?.village ||
+                  'Lokasi tidak diketahui';
+              }
+            } catch (error) {
+              console.warn('Gagal mengonversi lokasi:', error);
+            }
+          }
+
+          infoLokasiHtml = `<p class="cerita-date cerita-loc">📍 Lokasi: ${namaLokasi}</p>`;
         } else {
           infoLokasiHtml = `<p class="cerita-date cerita-loc">📍 Lokasi: Tidak disematkan</p>`;
         }
@@ -65,7 +86,7 @@ export default class Favorit {
             </div>
           </div>
         `;
-      });
+      }
 
       containerFavorit.innerHTML = semuaKartuHtml;
 
