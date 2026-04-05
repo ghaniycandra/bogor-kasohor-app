@@ -1,0 +1,1 @@
+Halo Reviewer, saya menggunakan OpenStreetMap untuk peta digitalnya sehingga tidak membutuhkan API Key. Terima kasih.

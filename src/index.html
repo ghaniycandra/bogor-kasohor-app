@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bogor Kasohor</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script type="module" src="/scripts/index.js"></script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Menuju ke konten utama</a>
+    <header>
+      <div class="main-header container">
+        <a class="brand-name" href="#/">Bogor Kasohor</a>
+
+        <nav id="navigation-drawer" class="navigation-drawer">
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#/">Beranda</a></li>
+            <li id="nav-tambah"><a href="#/tambah">Tambah Cerita</a></li>
+            <li id="nav-login"><a href="#/login">Login</a></li>
+            <li id="nav-daftar"><a href="#/daftar">Daftar</a></li>
+            <li id="nav-logout" style="display: none">
+              <a href="javascript:void(0)" id="btn-keluar-global">Keluar</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          id="drawer-button"
+          class="drawer-button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content" tabindex="0"></main>
+
+    <footer class="app-footer">
+      <p>Belajar Pengembangan Web Intermediate © 2026 - Bogor Kasohor</p>
+    </footer>
+  </body>
+</html>
