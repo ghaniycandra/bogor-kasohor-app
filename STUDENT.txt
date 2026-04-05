@@ -1,1 +1,2 @@
-Halo Reviewer, saya menggunakan OpenStreetMap untuk peta digitalnya sehingga tidak membutuhkan API Key. Terima kasih.
+Link repositori di Github: https://github.com/ghaniycandra/bogor-kasohor-app
+Link deploy program: https://ghaniycandra.github.io/bogor-kasohor-app
