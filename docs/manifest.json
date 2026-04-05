@@ -1,0 +1,25 @@
+{
+  "id": "/#/",
+  "start_url": "/index.html",
+  "scope": "/",
+  "name": "Bogor Kasohor",
+  "short_name": "Bogor Kasohor",
+  "description": "Medium berbagi cerita yang kamu temukan di Bogor",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#2d3e50",
+  "icons": [
+    {
+      "src": "images/icons/icon-x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icons/icon-x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}
