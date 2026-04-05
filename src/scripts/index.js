@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/sw.js')
+      const swUrl = import.meta.env.BASE_URL + 'sw.js';  
+      navigator.serviceWorker.register(swUrl)
         .then((registration) => {
           console.log('Service Worker berhasil didaftarkan:', registration.scope);
         })
